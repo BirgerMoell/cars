@@ -1,47 +1,56 @@
 import React from 'react';
-import Filter from '../data/filter';
 
 export default class Api extends React.Component {
   constructor() {
     super();
-    this.state = { cars: [], filteredCars: [] };
+    this.state = { cars: [], filteredCars: [], filter: "" };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.setFilter = this.setFilter.bind(this);
+  }
+
+  handleChange(event) {
+    var filterValue = document.getElementById("filterInput").value
+    this.setState({filter: filterValue});
+    this.setState({filteredCars: this.state.cars.filter(cars => cars.year === parseInt(filterValue))})
+    if (filterValue.length === 0) {
+      this.setState({filteredCars: this.state.cars})
+    }
   }
 
   componentDidMount() {
     fetch('http://localhost:3000/cars.json')
       .then(result=>result.json())
       .then(cars=>this.setState({cars}))
-
-      var filteredArray = this.state.cars.filter(cars => cars.year === 2000);
-      this.state.filteredCars = filteredArray;
-      console.log(this.state.filteredCars)
-
-      console.log(this.state.filter)
+    this.setState({filteredCars: this.state.cars})
   }
 
+  setFilter() {
+    if (this.state.filter.length === 0) {
+      return "filteredCars"
+    }
+    else {
+      return "cars"
+    }
+  }
 
 
   render() {
 
-    /*let filteredCars = this.state.filter(
-      (cars) => {
-        return cars.year.indexOf(this.state.filter) !== -1;
-      }
 
-      // add back filtering later
-      <input type="text" value={this.state.filter} onChange={this.updateFilter.bind(this)}></input>
-
-
-    ); */
     return(
       <div>
 
         <div className="car-list">
 
-          {this.state.cars.map(cars=>
+          <label>
+            <h5>Filter year</h5>
+            <input type="text" id="filterInput" value={this.state.value} onChange={this.handleChange} />
+            <p id="filter"></p>
+          </label>
 
 
-              (cars.year === 1972 ?
+          {this.state.filteredCars.map(cars=>
 
             <div
               className="car"
@@ -52,10 +61,15 @@ export default class Api extends React.Component {
 
             </div>
 
-             : '')
+
 
             )}
+
+
       </div>
+
+
+
 
   </div>
 

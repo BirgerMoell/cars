@@ -6,10 +6,17 @@ import CarList from '../components/CarList';
 import * as CarListActions from '../actions'
 import '../styles/index.css'
 import Api from '../data/api';
-import Filter from '../data/filter';
 
-
-
+/*
+<CarList
+	cars={this.props.cars}
+	showCars={this.props.showCars}
+	buttonAction={() => {
+		console.log('button action');
+		this.props.actions.toggleCarListVisibility(!this.props.showCars);
+	}}
+/>
+*/
 
 
 
@@ -22,16 +29,6 @@ class App extends Component {
 		return(
 			<div className="page-container">
 				<Header />
-				<CarList
-					cars={this.props.cars}
-					showCars={this.props.showCars}
-					buttonAction={() => {
-						console.log('button action');
-						this.props.actions.toggleCarListVisibility(!this.props.showCars);
-					}}
-				/>
-
-				<Filter />
 				<Api/>
 			</div>
 		);

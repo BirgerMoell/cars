@@ -1,0 +1,62 @@
+[
+  {
+    "reg": "ABC123",
+    "name": "Opel",
+    "color": "#ff00ff",
+    "year": 2009
+  },
+  {
+    "reg": "KAK313",
+    "name": "Volvo",
+    "color": "#00ffff",
+    "year": 2002
+  },
+  {
+    "reg": "IHN491",
+    "name": "Volvo",
+    "color": "#00ffff",
+    "year": 1992
+  },
+  {
+    "reg": "MUE845",
+    "name": "Saab",
+    "color": "#00ffff",
+    "year": 1980
+  },
+  {
+    "reg": "BPE439",
+    "name": "Ford",
+    "color": "#00ff34",
+    "year": 2009
+  },
+  {
+    "reg": "HUV917",
+    "name": "Honda",
+    "color": "#069f12",
+    "year": 2011
+  },
+  {
+    "reg": "MUE845",
+    "name": "Volkswagen",
+    "color": "#9f9f9f",
+    "year": 1980
+  },
+  {
+    "reg": "TDE983",
+    "name": "Kia",
+    "color": "#560ff3",
+    "year": 1972
+  },
+  {
+    "reg": "APY482",
+    "name": "Tesla",
+    "color": "#15f3f8",
+    "year": 2015
+  },
+  {
+    "reg": "IHN491",
+    "name": "Subaru",
+    "color": "#51f3f3",
+    "year": 2017
+  }
+]

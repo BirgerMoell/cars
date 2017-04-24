@@ -1,0 +1,18 @@
+.page-container {
+	max-width: 500px;
+	border: 1px solid #dddddd;
+}
+
+.header {
+	background-color: #dddddd;
+}
+
+.car-list {
+	margin-top: 20px;
+	background-color: #eeeeee;
+}
+
+.car {
+	border-left: 5px solid;
+	padding-left: 5px;
+}

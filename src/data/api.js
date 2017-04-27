@@ -32,11 +32,11 @@ export default class Api extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({filteredCars: this.state.cars})
+    //this.setState({filteredCars: this.state.cars})
   }
 
   setFilter() {
-    if (document.getElementById("filterInput").value === 0) {
+    if (!document.getElementById("filterInput")) {
       this.setState({filteredCars: this.state.cars})
     }
   }
@@ -54,15 +54,17 @@ export default class Api extends React.Component {
             <p id="filter"></p>
           </label>
 
+
+
           {
             //this.state.cars.filter(cars => cars.year === parseInt(filterValue)).map(cars=>
             this.state.filteredCars.map(cars =>
             <div
              className="car"
-             key={cars.reg}
-             style={{borderColor: cars.color}}>
-             <p key={cars.id}>{cars.reg} {cars.name} {cars.year}</p>
-
+             key={cars.reg}>
+             <div>{cars.reg} </div>
+             <div> {cars.name}, {cars.year} </div>
+             <div className="symbol" style={{background: cars.color}}></div>
            </div>
 
              )}

@@ -1,4 +1,5 @@
 import React from 'react';
+import FlipMove from 'react-flip-move';
 
 export default class Api extends React.Component {
   constructor() {
@@ -31,15 +32,15 @@ export default class Api extends React.Component {
       //this.setState({filter: filterValue})
   }
 
-  componentDidMount() {
-    //this.setState({filteredCars: this.state.cars})
-  }
 
   setFilter() {
     if (!document.getElementById("filterInput")) {
       this.setState({filteredCars: this.state.cars})
     }
   }
+
+
+
 
 
 
@@ -54,20 +55,20 @@ export default class Api extends React.Component {
             <p id="filter"></p>
           </label>
 
+          <div>
+              <FlipMove maintainContainerHeight={true}>
+            {this.state.filteredCars.map(cars =>
+              <div className="car"key={cars.reg}>
+                <div classname="leftSection">{cars.reg} </div>
+                <div className="middleSection"> {cars.name}, {cars.year} </div>
+                <div className="rightSection symbol" style={{background: cars.color}}></div>
+              </div>
+            )
+            }
+            </FlipMove>
 
+          </div>
 
-          {
-            //this.state.cars.filter(cars => cars.year === parseInt(filterValue)).map(cars=>
-            this.state.filteredCars.map(cars =>
-            <div
-             className="car"
-             key={cars.reg}>
-             <div>{cars.reg} </div>
-             <div> {cars.name}, {cars.year} </div>
-             <div className="symbol" style={{background: cars.color}}></div>
-           </div>
-
-             )}
 
 
             </div>

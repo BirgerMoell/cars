@@ -4,8 +4,12 @@ class Header extends Component {
 
 	render() {
 		return (
+			<div>
+			<img src="/car-list-logo.png" className="headerImage"/>
 			<div className="header">
-				<h1></h1>
+
+			</div>
+
 			</div>
 		);
 	}

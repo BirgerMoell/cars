@@ -7,7 +7,6 @@ export default class Api extends React.Component {
     this.state = { cars: [], filteredCars: [], filter: "" };
 
     this.handleChange = this.handleChange.bind(this);
-    this.setFilter = this.setFilter.bind(this);
   }
 
   // calls when the input field is changed
@@ -21,27 +20,19 @@ export default class Api extends React.Component {
   }
 
   componentWillMount() {
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     fetch('http://localhost:3000/cars.json')
       .then(result=>result.json())
       .then(cars=>this.setState({cars}))
-      //console.log("the component did mount");
-      //console.log(this.state);
-      this.setState({filteredCars: this.state.cars})
-      //let filterValue = document.getElementById("filterInput").value
-
-      //this.setState({filter: filterValue})
-  }
-
-
-  setFilter() {
-    if (!document.getElementById("filterInput")) {
       this.setState({filteredCars: this.state.cars})
     }
+    else {
+      fetch(window.location.href + 'cars.json')
+        .then(result=>result.json())
+        .then(cars=>this.setState({cars}))
+        this.setState({filteredCars: this.state.cars})
+    }
   }
-
-
-
-
 
 
   render() {

@@ -16,8 +16,5 @@ class Header extends Component {
 
 }
 
-Header.PropTypes = {
-  clickAction: PropTypes.array,
-}
 
 export default Header;

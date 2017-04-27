@@ -44,11 +44,11 @@ export default class Api extends React.Component {
     return(
       <div>
         <div className="car-list">
-          <label>
-            <h5>Filter year</h5>
+          <div className="filterSection">
+            <p className="filterText">Filter year</p>
             <input type="text" id="filterInput" value={this.state.value} onChange={this.handleChange} />
             <p id="filter"></p>
-          </label>
+          </div>
 
 
 
@@ -56,8 +56,8 @@ export default class Api extends React.Component {
               <FlipMove maintainContainerHeight={true}>
             {this.state.filteredCars.map(cars =>
 
-              <div className="car"key={cars.reg}>
-                <div classname="leftSection">{cars.reg} </div>
+              <div className="car" key={cars.reg}>
+                <div className="leftSection"> {cars.reg} </div>
                 <div className="middleSection"> {cars.name}, {cars.year} </div>
                 <div className="rightSection symbol" style={{background: cars.color}}></div>
               </div>

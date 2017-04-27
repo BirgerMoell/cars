@@ -7,7 +7,6 @@ export default class Api extends React.Component {
     this.state = { cars: [], filteredCars: [], filter: "" };
 
     this.handleChange = this.handleChange.bind(this);
-    this.checkFilter = this.checkFilter.bind(this);
   }
 
   // calls when the input field is changed
@@ -24,39 +23,19 @@ export default class Api extends React.Component {
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     fetch('http://localhost:3000/cars.json')
       .then(result=>result.json())
-      .then(cars=>this.setState({cars}))
-      .then(this.setState({filteredCars: this.state.cars}))
+      .then(cars => {
+          this.setState({cars});
+          this.setState({filteredCars: cars});
+        })
     }
     else {
       fetch(window.location.href + 'cars.json')
         .then(result=>result.json())
-        .then(cars=>this.setState({cars}))
-        .then(this.setState({filteredCars: this.state.cars}))
+        .then(cars => {
+          this.setState({cars});
+          this.setState({filteredCars: cars});
+      })
     }
-  }
-
-  checkFilter() {
-    // gives out the cars array in the beginning
-    if (this.state.filteredCars.length === 0) {
-      return (
-        <div>
-            <FlipMove maintainContainerHeight={true}>
-          {this.state.cars.map(cars =>
-
-            <div className="car"key={cars.reg}>
-              <div classname="leftSection">{cars.reg} </div>
-              <div className="middleSection"> {cars.name}, {cars.year} </div>
-              <div className="rightSection symbol" style={{background: cars.color}}></div>
-            </div>
-          )
-          }
-          </FlipMove>
-
-        </div>
-      )
-
-    }
-
   }
 
 
@@ -72,7 +51,6 @@ export default class Api extends React.Component {
           </label>
 
 
-          {this.checkFilter()}
 
           <div>
               <FlipMove maintainContainerHeight={true}>
